@@ -4,7 +4,7 @@ class db{
 		//XAMPP la clave es vacia
 		//MAMP la clave root
 		//MAMP en PC requerian el numero de puerto de la bd
-		$conn = new mysqli("localhost","root","root","mvc") or 
+		$conn = new mysqli("localhost","root","20C0cac0la20","mvc") or 
 		die("Error al abrir la base de datos");
 		$conn->query("SET NAMES 'utf8'");
 		return $conn;
