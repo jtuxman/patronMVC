@@ -1,5 +1,6 @@
 <?php
 //Cargar clases
-print "Hola, desde inicio";
-
+require_once("libs/MySQLdb.php");
+//$db = new MySQLdb();
+require_once("libs/Control.php");
 ?>
