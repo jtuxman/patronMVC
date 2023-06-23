@@ -37,5 +37,9 @@ class MySQLdb{
       array_push($data,$row);
     return $data;
   }
+  public function queryNoSelect($sql){
+    //Insert, Update y Delete 
+    return $this->conn->query($sql);
+  }
 }
 ?>

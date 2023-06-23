@@ -28,7 +28,11 @@ class Libros extends Controlador{
   {
     //print "Alta de un libro: ";
     if ($_SERVER['REQUEST_METHOD']=="POST") {
-      print "Insertar datos";
+      $titulo = isset($_POST["titulo"])?$_POST["titulo"]:"";
+      $autor = isset($_POST["autor"])?$_POST["autor"]:"";
+      $editorial = isset($_POST["editorial"])?$_POST["editorial"]:"";
+
+      $this->modelo->insertarLibros($titulo, $autor, $editorial);
     } else {
       $this->vista("LibrosAlta","");
     }
