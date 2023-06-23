@@ -38,9 +38,25 @@ class Libros extends Controlador{
         $this->vista("LibrosModificar",$datos);
     }
   }
-  public function borrar($id)
+  public function borrar($id="")
   {
-    print "Borrar: ".$id;
+   
+    if ($_SERVER['REQUEST_METHOD']=="POST") {
+      $id = isset($_POST["id"])?$_POST["id"]:"";
+     
+      $this->modelo->borrarLibro($id);
+
+    } else {
+      $data = $this->modelo->getLibro($id);
+      $datos = [
+        "id" => $id,
+        "titulo" => $data[0]["titulo"],
+        "autor" => $data[0]["autor"],
+        "editorial" => $data[0]["editorial"]
+      ];
+      $this->vista("LibrosBorrar",$datos);
+      
+    }
   }
   public function alta()
   {

@@ -46,5 +46,15 @@ class LibrosModelo{
       exit("Error al modificar los datos del libro");
     }
   }
+  public function borrarLibro($id){
+    $sql = "DELETE FROM libros ";
+    $sql.= "WHERE id=".$id;
+    if ($this->db->queryNoSelect($sql)) {
+      header("location:".RUTA_APP."libros");
+      exit();
+    } else {
+      exit("Error al borrar el libro");
+    }
+  }
 }
 ?>
