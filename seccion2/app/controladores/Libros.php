@@ -14,15 +14,26 @@ class Libros extends Controlador{
     
     print"<br><br><br>";
     //llamamos a la vista
-    //var_dump($data);
-    ///print "<ul>";
-    ///for ($i=0; $i < count($data); $i++) { 
-    ///  print "<li>".$data[$i]["titulo"]."</li>";
-    ///}
-    ///print "</ul>";
-    ///$this->vista("LibrosVista",$data);
     $this->vista("LibrosVista",$data);
   }
+  public function modificar($id)
+  {
+    print "Modificar: ".$id;
+  }
+  public function borrar($id)
+  {
+    print "Borrar: ".$id;
+  }
+  public function alta()
+  {
+    //print "Alta de un libro: ";
+    if ($_SERVER['REQUEST_METHOD']=="POST") {
+      print "Insertar datos";
+    } else {
+      $this->vista("LibrosAlta","");
+    }
+  }
+  
 
 
 
