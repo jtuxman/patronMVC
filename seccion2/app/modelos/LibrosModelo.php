@@ -15,6 +15,11 @@ class LibrosModelo{
     //var_dump($data);
     return $data;
   }
+  public function getLibro($id){
+    $data = $this->db->querySelect("SELECT * FROM libros WHERE id=".$id);
+    //var_dump($data);
+    return $data;
+  }
   public function insertarLibros($titulo, $autor, $editorial){
     $sql = "INSERT INTO libros VALUES(0,";
     $sql.= "'".$titulo."', ";
@@ -25,6 +30,20 @@ class LibrosModelo{
       exit();
     } else {
       exit("Error al insertar los datos del libro");
+    }
+  }
+  public function modificarLibros($id,$titulo, $autor, $editorial){
+
+    $sql = "UPDATE libros SET ";
+    $sql.= "titulo='".$titulo."', ";
+    $sql.= "autor='".$autor."', ";
+    $sql.= "editorial='".$editorial."' ";
+    $sql.= "WHERE id='".$id."'";
+    if ($this->db->queryNoSelect($sql)) {
+      header("location:".RUTA_APP."libros");
+      exit();
+    } else {
+      exit("Error al modificar los datos del libro");
     }
   }
 }

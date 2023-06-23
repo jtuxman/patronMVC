@@ -16,9 +16,27 @@ class Libros extends Controlador{
     //llamamos a la vista
     $this->vista("LibrosVista",$data);
   }
-  public function modificar($id)
+  public function modificar($id="")
   {
-    print "Modificar: ".$id;
+    if ($_SERVER['REQUEST_METHOD']=="POST") {
+      $id = isset($_POST["id"])?$_POST["id"]:"";
+      $titulo = isset($_POST["titulo"])?$_POST["titulo"]:"";
+      $autor = isset($_POST["autor"])?$_POST["autor"]:"";
+      $editorial = isset($_POST["editorial"])?$_POST["editorial"]:"";
+      print "<br>ID ".$id;
+      $this->modelo->modificarLibros($id, $titulo, $autor, $editorial);
+    } 
+    else 
+    {   
+        $data = $this->modelo->getLibro($id);
+        $datos = [
+        "id" => $id,
+        "titulo" => $data[0]["titulo"],
+        "autor" => $data[0]["autor"],
+        "editorial" => $data[0]["editorial"]
+        ];
+        $this->vista("LibrosModificar",$datos);
+    }
   }
   public function borrar($id)
   {
