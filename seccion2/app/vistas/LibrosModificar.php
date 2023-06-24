@@ -14,7 +14,7 @@
           <label for="editorial">Editorial:</label>
          <input type="text" class="form-control" name="editorial" value="<?php print $datos["editorial"]; ?>">
      </div>
-     <div class="form-group text-left     
+     <div class="form-group text-left">     
          <input type="hidden" value="<?php print $datos["id"]; ?>" name="id">
          <input type="submit" value="Enviar"  class="btn btn-info">
          <a href='<?php print RUTA_APP."libros/"; ?>'  class="btn btn-info">Regresar</a>
