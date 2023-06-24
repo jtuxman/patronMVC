@@ -12,12 +12,12 @@ class LibrosModelo{
 
   public function getLibros(){
     $data = $this->db->querySelect("SELECT * FROM libros");
-    //var_dump($data);
+
     return $data;
   }
   public function getLibro($id){
     $data = $this->db->querySelect("SELECT * FROM libros WHERE id=".$id);
-    //var_dump($data);
+
     return $data;
   }
   public function insertarLibros($titulo, $autor, $editorial){

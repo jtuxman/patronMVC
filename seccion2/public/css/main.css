@@ -3,11 +3,11 @@ body{
   margin: 0 auto;
 }
 th{
-  background-color: gray;
+  background-color: rgb(81, 169, 219);
   color: white;
 }
 tr:nth-child(even){
-  background-color: #ccc;
+  background-color: #dce2e0e7;
 }
 h1{
   text-align: center;
